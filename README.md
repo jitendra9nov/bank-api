@@ -1,2 +1,2 @@
-# open-atm-api
-This API is used to get the ATM details
+# bank-api
+This API is used to validate the Account details
