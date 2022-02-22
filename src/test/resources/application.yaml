@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: ERROR
+    org.springframework: ERROR
+    com.bank.account: DEBUG
+
+server:
+    port: 8084
+
+
+sources:
+  list:
+  - name: "source1"
+    url: "https://source1.com/v1/api/account/validate"
+  - name: "source2"
+    url: "https://source2.com/v2/api/account/validate"
