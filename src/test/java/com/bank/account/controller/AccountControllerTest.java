@@ -14,19 +14,20 @@ import com.bank.account.ds.exchange.DataSourceRequest;
 import com.bank.account.ds.exchange.DataSourceResponse;
 import com.bank.account.exchange.AccountRequest;
 import com.bank.account.exchange.DataSource;
-import com.bank.account.gateway.DataSourceGateway;
-import com.bank.account.service.AccountService;
+import com.bank.account.gateway.DataSourceGatewayImpl;
+import com.bank.account.service.AccountServiceImpl;
 import com.bank.account.utils.WebClientUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,13 +41,14 @@ class AccountControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Autowired
-	AccountService accountStervice;
+	@InjectMocks
+	AccountServiceImpl accountStervice;
 
-	@Autowired
-	DataSourceGateway dataSourceGateway;
+	
+	@Mock
+	DataSourceGatewayImpl dataSourceGateway;
 
-	@MockBean
+	@Mock
 	WebClientUtil webClientUtil;
 
 	private static final ObjectMapper om = new ObjectMapper();
